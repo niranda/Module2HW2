@@ -9,13 +9,7 @@ namespace StyleCop.Services
 
         public void UploadDevices(Product[] inputData)
         {
-            var necessarryLength = inputData.Length;
-            if (necessarryLength >= _configuration.GetUploadLimit())
-            {
-                necessarryLength = _configuration.GetUploadLimit();
-            }
-
-            for (var i = 0; i < necessarryLength; i++)
+            for (var i = 0; i < _configuration.GetUploadLimit(); i++)
             {
                 if (inputData[i] == null)
                 {

@@ -16,7 +16,13 @@ namespace StyleCop.Services
 
         public void AddToCart(Product[] products)
         {
-            for (var i = 0; i < _configuration.GetCartLimit(); i++)
+            var necessarryLength = products.Length;
+            if (necessarryLength >= _configuration.GetCartLimit())
+            {
+                necessarryLength = _configuration.GetCartLimit();
+            }
+
+            for (var i = 0; i < necessarryLength; i++)
             {
                 if (products[i] == null)
                 {

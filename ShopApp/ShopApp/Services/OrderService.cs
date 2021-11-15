@@ -14,7 +14,7 @@ namespace StyleCop.Services
 
         public static OrderService Instance => _instance;
 
-        public void MakeOrder(string name, string email, string phoneNumber, Product[] products)
+        public void PlaceOrder(string name, string email, string phoneNumber, Product[] products)
         {
             var status = GetStatus();
             if (status)

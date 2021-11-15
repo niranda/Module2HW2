@@ -29,10 +29,15 @@ namespace StyleCop.Main
 
         public void Run()
         {
+            // a "_deviceService" field help us to get all available products from server
             _deviceSercive.UploadDevices(_availableProducts);
             var availableDevices = _deviceSercive.GetDevices();
-            _user.AddProductsToCart(availableDevices);
-            _user.MakeOrder(_user.UserName, _user.UserEmail, _user.UserPhoneNumber);
+
+            // User chooses necessarry products and adds them into a cart
+            _user.AddProductsToCart(availableDevices[0], availableDevices[2], availableDevices[4]);
+
+            // User places an order
+            _user.PlaceOrder();
         }
     }
 }

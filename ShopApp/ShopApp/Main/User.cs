@@ -18,15 +18,15 @@ namespace StyleCop.Main
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public string UserPhoneNumber { get; set; }
-        public void AddProductsToCart(Product[] products)
+        public void AddProductsToCart(params Product[] products)
         {
             _cart.AddToCart(products);
         }
 
-        public void MakeOrder(string name, string email, string phoneNumber)
+        public void PlaceOrder()
         {
             var products = _cart.GetCartProducts();
-            _order.MakeOrder(name, email, phoneNumber, products);
+            _order.PlaceOrder(UserName, UserEmail, UserPhoneNumber, products);
         }
     }
 }
